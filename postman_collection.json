@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "spy-cat-agency-api",
+		"name": "Spy Cat Agency API",
+		"description": "Complete API collection for managing spy cats, missions, and targets",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Spy Cats",
+			"description": "CRUD operations for spy cats",
+			"item": [
+				{
+					"name": "Get All Spy Cats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cats/",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cats", ""]
+						}
+					}
+				},
+				{
+					"name": "Create Spy Cat",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Luke\",\n  \"years_of_experience\": 5,\n  \"breed\": \"Siamese\",\n  \"salary\": 50000.00\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/cats/",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cats", ""]
+						}
+					}
+				},
+				{
+					"name": "Get Spy Cat by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cats/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cats", "1"]
+						}
+					}
+				},
+				{
+					"name": "Update Spy Cat Salary",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"salary\": 55000.00\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/cats/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cats", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Spy Cat",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cats/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cats", "1"]
+						}
+					}
+				},
+				{
+					"name": "Get Available Breeds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/cats/breeds/available",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "cats", "breeds", "available"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Missions",
+			"description": "Operations for managing missions and targets",
+			"item": [
+				{
+					"name": "Create Mission with Targets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"targets\": [\n    {\n      \"name\": \"Dr. Evil\",\n      \"country\": \"Germany\",\n      \"notes\": \"Suspected of cat food theft\"\n    },\n    {\n      \"name\": \"Mouse King\",\n      \"country\": \"France\",\n      \"notes\": \"Leader of the rodent resistance\"\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/missions/",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "missions", ""]
+						}
+					}
+				},
+				{
+					"name": "Get All Missions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/missions/",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "missions", ""]
+						}
+					}
+				},
+				{
+					"name": "Get Mission by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/missions/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "missions", "1"]
+						}
+					}
+				},
+				{
+					"name": "Assign Mission to Cat",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cat_id\": 1\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/missions/1/assign",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "missions", "1", "assign"]
+						}
+					}
+				},
+				{
+					"name": "Update Target Notes",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notes\": \"Updated surveillance notes: Target spotted at the fish market\",\n  \"is_complete\": false\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/missions/1/targets/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "missions", "1", "targets", "1"]
+						}
+					}
+				},
+				{
+					"name": "Mark Target as Complete",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"is_complete\": true\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/missions/1/targets/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "missions", "1", "targets", "1"]
+						}
+					}
+				},
+				{
+					"name": "Delete Mission",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/missions/1",
+							"host": ["{{baseUrl}}"],
+							"path": ["api", "missions", "1"]
+						}
+					}
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
